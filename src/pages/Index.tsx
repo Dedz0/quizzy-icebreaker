@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSelector from "@/components/LanguageSelector";
 import ThemeCard from "@/components/ThemeCard";
@@ -8,6 +9,7 @@ import { Brain, Trophy, Globe2, HeartHandshake } from "lucide-react";
 
 const Index = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [selectedTheme, setSelectedTheme] = useState<string | null>(null);
 
@@ -21,7 +23,7 @@ const Index = () => {
   const handleStart = () => {
     if (username && selectedTheme) {
       console.log("Starting quiz with:", { username, selectedTheme });
-      // TODO: Implement quiz start logic
+      navigate("/quiz", { state: { username, theme: selectedTheme } });
     }
   };
 
