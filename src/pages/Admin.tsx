@@ -44,7 +44,6 @@ const Admin = () => {
   ]);
   const [editingQuestion, setEditingQuestion] = useState<Question | null>(null);
   const [questions, setQuestions] = useState<Question[]>([
-    // Exemple de questions existantes
     {
       id: 1,
       theme: "agility",
@@ -56,7 +55,50 @@ const Admin = () => {
         { text: "Un langage de programmation", isCorrect: false },
       ],
     },
-    // ... autres questions
+    {
+      id: 2,
+      theme: "agility",
+      question: "Quel est le rôle du Scrum Master ?",
+      answers: [
+        { text: "Faciliter le processus Scrum", isCorrect: true },
+        { text: "Coder l'application", isCorrect: false },
+        { text: "Gérer le budget", isCorrect: false },
+        { text: "Diriger l'équipe", isCorrect: false },
+      ],
+    },
+    {
+      id: 3,
+      theme: "customerCare",
+      question: "Quelle est la première étape pour gérer un client mécontent ?",
+      answers: [
+        { text: "Écouter activement", isCorrect: true },
+        { text: "Proposer un remboursement", isCorrect: false },
+        { text: "Transférer à un supérieur", isCorrect: false },
+        { text: "Ignorer la plainte", isCorrect: false },
+      ],
+    },
+    {
+      id: 4,
+      theme: "customerCare",
+      question: "Comment gérer un client agressif ?",
+      answers: [
+        { text: "Rester calme et professionnel", isCorrect: true },
+        { text: "Répondre sur le même ton", isCorrect: false },
+        { text: "Raccrocher", isCorrect: false },
+        { text: "Hausser la voix", isCorrect: false },
+      ],
+    },
+    {
+      id: 5,
+      theme: "generalCulture",
+      question: "Quelle est la capitale de la France ?",
+      answers: [
+        { text: "Paris", isCorrect: true },
+        { text: "Londres", isCorrect: false },
+        { text: "Berlin", isCorrect: false },
+        { text: "Madrid", isCorrect: false },
+      ],
+    },
   ]);
 
   const handleAnswerChange = (index: number, text: string) => {
