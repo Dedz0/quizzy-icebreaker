@@ -95,7 +95,6 @@ const Rankings = () => {
         </div>
       </div>
     </div>
-  </div>
   );
 };
 
