@@ -330,10 +330,10 @@ const predefinedQuestions: Question[] = [
     ],
   },
 
-  // Customer Care Questions (10)
+  // Customer Care Questions (10) - updating theme from "customerCare" to "customer"
   {
     question: "What is the first step in handling a customer complaint?",
-    theme: "customerCare",
+    theme: "customer",
     answers: [
       { text: "Solve the problem immediately", isCorrect: false },
       { text: "Listen actively to the customer", isCorrect: true },
@@ -343,7 +343,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "What does 'CRM' stand for in customer service?",
-    theme: "customerCare",
+    theme: "customer",
     answers: [
       { text: "Customer Return Management", isCorrect: false },
       { text: "Customer Relationship Management", isCorrect: true },
@@ -353,7 +353,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "What is empathy in customer service?",
-    theme: "customerCare",
+    theme: "customer",
     answers: [
       { text: "Agreeing with everything the customer says", isCorrect: false },
       { text: "Understanding and sharing the customer's feelings", isCorrect: true },
@@ -363,7 +363,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "What is the best way to handle an angry customer?",
-    theme: "customerCare",
+    theme: "customer",
     answers: [
       { text: "Interrupt them to correct their misconceptions", isCorrect: false },
       { text: "Remain calm and listen patiently", isCorrect: true },
@@ -373,7 +373,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "What is a service level agreement (SLA)?",
-    theme: "customerCare",
+    theme: "customer",
     answers: [
       { text: "A customer complaint form", isCorrect: false },
       { text: "A contract defining service expectations", isCorrect: true },
@@ -383,7 +383,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "What is the purpose of customer feedback?",
-    theme: "customerCare",
+    theme: "customer",
     answers: [
       { text: "To evaluate employee performance only", isCorrect: false },
       { text: "To improve products and services", isCorrect: true },
@@ -393,7 +393,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "What is a key component of good customer service?",
-    theme: "customerCare",
+    theme: "customer",
     answers: [
       { text: "Speaking quickly", isCorrect: false },
       { text: "Clear communication", isCorrect: true },
@@ -403,7 +403,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "What is the purpose of customer segmentation?",
-    theme: "customerCare",
+    theme: "customer",
     answers: [
       { text: "To discriminate against customers", isCorrect: false },
       { text: "To provide targeted, relevant service", isCorrect: true },
@@ -413,7 +413,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "What is First Contact Resolution (FCR)?",
-    theme: "customerCare",
+    theme: "customer",
     answers: [
       { text: "The first time a customer calls", isCorrect: false },
       { text: "Resolving issues in the first interaction", isCorrect: true },
@@ -423,7 +423,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "What is the importance of follow-up in customer service?",
-    theme: "customerCare",
+    theme: "customer",
     answers: [
       { text: "To increase sales", isCorrect: false },
       { text: "To ensure customer satisfaction and resolution", isCorrect: true },
