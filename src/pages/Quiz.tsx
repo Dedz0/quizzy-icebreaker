@@ -475,7 +475,13 @@ const Quiz = () => {
       title: t("quiz.complete"),
       description: `${t("score")}: ${score}/${questions.length}`,
     });
-    navigate("/");
+    navigate("/rankings", {
+      state: {
+        username: quizState?.username,
+        score: score,
+        theme: quizState?.theme,
+      },
+    });
   };
 
   const handleNextQuestion = () => {
