@@ -487,16 +487,34 @@ const Quiz = () => {
   const quizState = location.state as QuizState;
 
   useEffect(() => {
-    console.log("Current theme:", quizState?.theme);
-    const filteredQuestions = predefinedQuestions.filter(q => {
-      if (quizState?.theme === "general") {
-        return q.theme === "generalCulture";
-      }
-      return q.theme === quizState?.theme;
-    });
-    console.log("Filtered questions:", filteredQuestions);
+    if (!quizState?.theme) {
+      navigate("/");
+      return;
+    }
+
+    console.log("Quiz state theme:", quizState.theme);
+    let filteredQuestions: Question[];
+
+    if (quizState.theme === "general") {
+      filteredQuestions = predefinedQuestions.filter(q => q.theme === "generalCulture");
+    } else {
+      filteredQuestions = predefinedQuestions.filter(q => q.theme === quizState.theme);
+    }
+
+    console.log("Filtered questions count:", filteredQuestions.length);
+    
+    if (filteredQuestions.length === 0) {
+      toast({
+        title: "Erreur",
+        description: "Aucune question disponible pour ce thème",
+        variant: "destructive",
+      });
+      navigate("/");
+      return;
+    }
+
     setQuestions(filteredQuestions);
-  }, [quizState?.theme]);
+  }, [quizState?.theme, navigate, toast]);
 
   useEffect(() => {
     if (!quizState?.username || !quizState?.theme) {
