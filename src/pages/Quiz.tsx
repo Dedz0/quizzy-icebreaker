@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -488,16 +487,14 @@ const Quiz = () => {
   const quizState = location.state as QuizState;
 
   useEffect(() => {
+    console.log("Current theme:", quizState?.theme);
     const filteredQuestions = predefinedQuestions.filter(q => {
-      // Map the theme from the UI to match the predefined questions theme
-      const themeMapping: { [key: string]: string } = {
-        general: "generalCulture",
-        customer: "customer",
-        agility: "agility",
-        sports: "sports"
-      };
-      return q.theme === themeMapping[quizState?.theme];
+      if (quizState?.theme === "general") {
+        return q.theme === "generalCulture";
+      }
+      return q.theme === quizState?.theme;
     });
+    console.log("Filtered questions:", filteredQuestions);
     setQuestions(filteredQuestions);
   }, [quizState?.theme]);
 
