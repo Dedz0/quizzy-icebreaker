@@ -21,6 +21,7 @@ interface Question {
   question: string;
   theme: string;
   answers: Answer[];
+  explanation: string; // Added explanation field
 }
 
 const predefinedQuestions: Question[] = [
@@ -34,6 +35,7 @@ const predefinedQuestions: Question[] = [
       { text: "A type of software bug", isCorrect: false },
       { text: "A database management system", isCorrect: false },
     ],
+    explanation: "Scrum is an Agile framework that helps teams work together. It describes a set of meetings, tools, and roles that work in concert to help teams structure and manage their work.",
   },
   {
     question: "What is a Sprint in Agile?",
@@ -44,6 +46,7 @@ const predefinedQuestions: Question[] = [
       { text: "A type of emergency meeting", isCorrect: false },
       { text: "A software testing phase", isCorrect: false },
     ],
+    explanation: "A Sprint in Agile is a short, time-boxed period when a scrum team works to complete a set amount of work.",
   },
   {
     question: "What is the role of a Scrum Master?",
@@ -54,6 +57,7 @@ const predefinedQuestions: Question[] = [
       { text: "A servant-leader who facilitates Scrum practices", isCorrect: true },
       { text: "The lead developer", isCorrect: false },
     ],
+    explanation: "The Scrum Master is a servant-leader for the Scrum Team. They help remove impediments, facilitate meetings, and ensure the team follows Scrum practices.",
   },
   {
     question: "What is a Daily Standup?",
@@ -64,6 +68,7 @@ const predefinedQuestions: Question[] = [
       { text: "A performance evaluation", isCorrect: false },
       { text: "A client presentation", isCorrect: false },
     ],
+    explanation: "A Daily Standup is a short, daily meeting where the team synchronizes activities and creates plans for the next 24 hours.",
   },
   {
     question: "What is a Product Backlog?",
@@ -74,6 +79,7 @@ const predefinedQuestions: Question[] = [
       { text: "A backup of the product", isCorrect: false },
       { text: "A product review document", isCorrect: false },
     ],
+    explanation: "The Product Backlog is a list of all features, enhancements, and fixes that constitute the complete set of changes to be made to the product.",
   },
   {
     question: "What is Velocity in Agile?",
@@ -84,6 +90,7 @@ const predefinedQuestions: Question[] = [
       { text: "The speed of the development server", isCorrect: false },
       { text: "The number of team members", isCorrect: false },
     ],
+    explanation: "Velocity in Agile is a measure of the amount of work a team can tackle during a single sprint and is used to plan future sprints.",
   },
   {
     question: "What is a Sprint Review?",
@@ -94,6 +101,7 @@ const predefinedQuestions: Question[] = [
       { text: "A code review session", isCorrect: false },
       { text: "A planning meeting", isCorrect: false },
     ],
+    explanation: "A Sprint Review is held at the end of the sprint to demonstrate the work done to the stakeholders and gather feedback.",
   },
   {
     question: "What is the purpose of Sprint Planning?",
@@ -104,6 +112,7 @@ const predefinedQuestions: Question[] = [
       { text: "To select and plan work for the upcoming sprint", isCorrect: true },
       { text: "To review past performance", isCorrect: false },
     ],
+    explanation: "Sprint Planning is an event in Scrum that defines what can be delivered in the Sprint and how that work will be achieved.",
   },
   {
     question: "What is a User Story?",
@@ -114,6 +123,7 @@ const predefinedQuestions: Question[] = [
       { text: "A user complaint", isCorrect: false },
       { text: "A user manual", isCorrect: false },
     ],
+    explanation: "A User Story is a tool used in Agile software development to capture a description of a software feature from an end-user perspective.",
   },
   {
     question: "What is the Agile Manifesto?",
@@ -124,6 +134,7 @@ const predefinedQuestions: Question[] = [
       { text: "A set of core values and principles for Agile development", isCorrect: true },
       { text: "A project management tool", isCorrect: false },
     ],
+    explanation: "The Agile Manifesto is a declaration of the core values and principles that guide Agile software development.",
   },
 
   // Sports Questions (10)
@@ -136,6 +147,7 @@ const predefinedQuestions: Question[] = [
       { text: "Tennis", isCorrect: false },
       { text: "Rugby", isCorrect: false },
     ],
+    explanation: "Football (Soccer) is known as 'The Beautiful Game' due to its flowing nature, artistic qualities, and universal appeal around the world.",
   },
   {
     question: "How many players are on a standard basketball team on court?",
@@ -146,6 +158,7 @@ const predefinedQuestions: Question[] = [
       { text: "7", isCorrect: false },
       { text: "4", isCorrect: false },
     ],
+    explanation: "A standard basketball team has 5 players on the court at any given time.",
   },
   {
     question: "In which sport would you perform a 'slam dunk'?",
@@ -156,6 +169,7 @@ const predefinedQuestions: Question[] = [
       { text: "Basketball", isCorrect: true },
       { text: "Football", isCorrect: false },
     ],
+    explanation: "A 'slam dunk' is a type of shot in basketball where the player jumps and forces the ball down through the hoop.",
   },
   {
     question: "How many points is a try worth in rugby union?",
@@ -166,6 +180,7 @@ const predefinedQuestions: Question[] = [
       { text: "5", isCorrect: true },
       { text: "6", isCorrect: false },
     ],
+    explanation: "In rugby union, a try is worth 5 points and is scored when a player grounds the ball in the opposition's in-goal area.",
   },
   {
     question: "What is the duration of a professional football (soccer) match?",
@@ -176,6 +191,7 @@ const predefinedQuestions: Question[] = [
       { text: "90 minutes", isCorrect: true },
       { text: "100 minutes", isCorrect: false },
     ],
+    explanation: "A professional football (soccer) match typically lasts for 90 minutes, divided into two 45-minute halves.",
   },
   {
     question: "In tennis, what is a 'Grand Slam'?",
@@ -186,6 +202,7 @@ const predefinedQuestions: Question[] = [
       { text: "Winning a match without losing a game", isCorrect: false },
       { text: "A powerful serve", isCorrect: false },
     ],
+    explanation: "In tennis, a 'Grand Slam' refers to winning all four major tournaments (Australian Open, French Open, Wimbledon, and US Open) in a single calendar year.",
   },
   {
     question: "Which country invented table tennis?",
@@ -196,6 +213,7 @@ const predefinedQuestions: Question[] = [
       { text: "England", isCorrect: true },
       { text: "USA", isCorrect: false },
     ],
+    explanation: "Table tennis was invented in England in the early 20th century.",
   },
   {
     question: "How many players are there in a volleyball team on court?",
@@ -206,6 +224,7 @@ const predefinedQuestions: Question[] = [
       { text: "7", isCorrect: false },
       { text: "8", isCorrect: false },
     ],
+    explanation: "A volleyball team has 6 players on the court at a time.",
   },
   {
     question: "What is the maximum number of clubs allowed in a golf bag during a round?",
@@ -216,6 +235,7 @@ const predefinedQuestions: Question[] = [
       { text: "16", isCorrect: false },
       { text: "18", isCorrect: false },
     ],
+    explanation: "The maximum number of clubs allowed in a golf bag during a round is 14.",
   },
   {
     question: "In which sport would you use a 'shuttlecock'?",
@@ -226,6 +246,7 @@ const predefinedQuestions: Question[] = [
       { text: "Badminton", isCorrect: true },
       { text: "Squash", isCorrect: false },
     ],
+    explanation: "A 'shuttlecock' is used in the sport of badminton.",
   },
 
   // General Culture Questions (10)
@@ -238,6 +259,7 @@ const predefinedQuestions: Question[] = [
       { text: "Pablo Picasso", isCorrect: false },
       { text: "Michelangelo", isCorrect: false },
     ],
+    explanation: "Leonardo da Vinci painted the Mona Lisa between 1503 and 1519. It is one of the most famous paintings in the world, housed at the Louvre Museum in Paris.",
   },
   {
     question: "What is the capital of Japan?",
@@ -248,6 +270,7 @@ const predefinedQuestions: Question[] = [
       { text: "Tokyo", isCorrect: true },
       { text: "Bangkok", isCorrect: false },
     ],
+    explanation: "The capital of Japan is Tokyo.",
   },
   {
     question: "Which planet is known as the Red Planet?",
@@ -258,6 +281,7 @@ const predefinedQuestions: Question[] = [
       { text: "Mars", isCorrect: true },
       { text: "Saturn", isCorrect: false },
     ],
+    explanation: "Mars is known as the Red Planet due to the large amount of iron oxide on its surface.",
   },
   {
     question: "Who wrote 'Romeo and Juliet'?",
@@ -268,6 +292,7 @@ const predefinedQuestions: Question[] = [
       { text: "Jane Austen", isCorrect: false },
       { text: "Mark Twain", isCorrect: false },
     ],
+    explanation: "William Shakespeare wrote 'Romeo and Juliet'.",
   },
   {
     question: "What is the largest ocean on Earth?",
@@ -278,6 +303,7 @@ const predefinedQuestions: Question[] = [
       { text: "Pacific Ocean", isCorrect: true },
       { text: "Arctic Ocean", isCorrect: false },
     ],
+    explanation: "The Pacific Ocean is the largest and deepest of Earth's oceanic divisions.",
   },
   {
     question: "In which year did World War II end?",
@@ -288,6 +314,7 @@ const predefinedQuestions: Question[] = [
       { text: "1945", isCorrect: true },
       { text: "1946", isCorrect: false },
     ],
+    explanation: "World War II ended in 1945.",
   },
   {
     question: "What is the chemical symbol for gold?",
@@ -298,6 +325,7 @@ const predefinedQuestions: Question[] = [
       { text: "Au", isCorrect: true },
       { text: "Cu", isCorrect: false },
     ],
+    explanation: "The chemical symbol for gold is Au, which comes from the Latin word 'aurum'.",
   },
   {
     question: "Which famous scientist developed the theory of relativity?",
@@ -308,6 +336,7 @@ const predefinedQuestions: Question[] = [
       { text: "Marie Curie", isCorrect: false },
       { text: "Charles Darwin", isCorrect: false },
     ],
+    explanation: "Albert Einstein developed the theory of relativity.",
   },
   {
     question: "What is the largest mammal in the world?",
@@ -318,6 +347,7 @@ const predefinedQuestions: Question[] = [
       { text: "Giraffe", isCorrect: false },
       { text: "Polar Bear", isCorrect: false },
     ],
+    explanation: "The blue whale is the largest mammal in the world.",
   },
   {
     question: "Who was the first person to walk on the moon?",
@@ -328,9 +358,10 @@ const predefinedQuestions: Question[] = [
       { text: "Yuri Gagarin", isCorrect: false },
       { text: "John Glenn", isCorrect: false },
     ],
+    explanation: "Neil Armstrong was the first person to walk on the moon on July 20, 1969.",
   },
 
-  // Customer Care Questions (10) - updating theme from "customerCare" to "customer"
+  // Customer Service Questions (10)
   {
     question: "What is the first step in handling a customer complaint?",
     theme: "customer",
@@ -340,6 +371,7 @@ const predefinedQuestions: Question[] = [
       { text: "Transfer to a supervisor", isCorrect: false },
       { text: "Offer a refund", isCorrect: false },
     ],
+    explanation: "Active listening is crucial as the first step because it helps understand the customer's issue fully, shows respect, and ensures the right solution is found.",
   },
   {
     question: "What does 'CRM' stand for in customer service?",
@@ -350,6 +382,7 @@ const predefinedQuestions: Question[] = [
       { text: "Customer Response Method", isCorrect: false },
       { text: "Customer Review Monitor", isCorrect: false },
     ],
+    explanation: "'CRM' stands for Customer Relationship Management, which involves strategies and technologies used to manage and analyze customer interactions and data.",
   },
   {
     question: "What is empathy in customer service?",
@@ -360,6 +393,7 @@ const predefinedQuestions: Question[] = [
       { text: "Following company policy strictly", isCorrect: false },
       { text: "Offering immediate solutions", isCorrect: false },
     ],
+    explanation: "Empathy in customer service is the ability to understand and share the feelings of the customer, showing that you care about their situation.",
   },
   {
     question: "What is the best way to handle an angry customer?",
@@ -370,6 +404,7 @@ const predefinedQuestions: Question[] = [
       { text: "Transfer them immediately", isCorrect: false },
       { text: "End the conversation quickly", isCorrect: false },
     ],
+    explanation: "The best way to handle an angry customer is to remain calm, listen patiently, and acknowledge their feelings before attempting to resolve the issue.",
   },
   {
     question: "What is a service level agreement (SLA)?",
@@ -380,6 +415,7 @@ const predefinedQuestions: Question[] = [
       { text: "A customer satisfaction survey", isCorrect: false },
       { text: "A training manual", isCorrect: false },
     ],
+    explanation: "A service level agreement (SLA) is a contract between a service provider and the end user that defines the level of service expected from the service provider.",
   },
   {
     question: "What is the purpose of customer feedback?",
@@ -390,6 +426,7 @@ const predefinedQuestions: Question[] = [
       { text: "To create marketing materials", isCorrect: false },
       { text: "To set prices", isCorrect: false },
     ],
+    explanation: "The purpose of customer feedback is to gather insights that can be used to improve products and services, and to enhance the overall customer experience.",
   },
   {
     question: "What is a key component of good customer service?",
@@ -400,6 +437,7 @@ const predefinedQuestions: Question[] = [
       { text: "Short conversations", isCorrect: false },
       { text: "Using technical terms", isCorrect: false },
     ],
+    explanation: "Clear communication is a key component of good customer service, ensuring that customers understand the information being conveyed and feel understood.",
   },
   {
     question: "What is the purpose of customer segmentation?",
@@ -410,6 +448,7 @@ const predefinedQuestions: Question[] = [
       { text: "To reduce service costs", isCorrect: false },
       { text: "To simplify reporting", isCorrect: false },
     ],
+    explanation: "Customer segmentation is used to divide customers into groups based on shared characteristics, allowing businesses to provide more targeted and relevant service.",
   },
   {
     question: "What is First Contact Resolution (FCR)?",
@@ -420,6 +459,7 @@ const predefinedQuestions: Question[] = [
       { text: "The first response to an email", isCorrect: false },
       { text: "First level support", isCorrect: false },
     ],
+    explanation: "First Contact Resolution (FCR) refers to resolving customer issues during the first interaction, whether it's a call, email, or chat.",
   },
   {
     question: "What is the importance of follow-up in customer service?",
@@ -430,6 +470,7 @@ const predefinedQuestions: Question[] = [
       { text: "To meet call quotas", isCorrect: false },
       { text: "To collect data", isCorrect: false },
     ],
+    explanation: "Follow-up in customer service is important to ensure customer satisfaction, confirm that the issue has been fully resolved, and build lasting relationships.",
   },
 ];
 
@@ -446,7 +487,6 @@ const Quiz = () => {
   const quizState = location.state as QuizState;
 
   useEffect(() => {
-    // Replace mock questions with predefined questions
     setQuestions(predefinedQuestions.filter(q => q.theme === quizState?.theme));
   }, [quizState?.theme]);
 
@@ -496,8 +536,25 @@ const Quiz = () => {
 
     const currentQuestion = questions[currentQuestionIndex];
     const selectedAnswerObj = currentQuestion.answers.find(a => a.text === selectedAnswer);
+    const isCorrect = selectedAnswerObj?.isCorrect || false;
+
+    // Show toast with explanation
+    toast({
+      title: isCorrect ? "Correct! 🎉" : "Incorrect",
+      description: (
+        <div className="mt-2">
+          <p className="font-semibold mb-1">
+            {isCorrect ? "Well done!" : "The correct answer was: " + 
+              currentQuestion.answers.find(a => a.isCorrect)?.text}
+          </p>
+          <p className="text-sm text-gray-600">{currentQuestion.explanation}</p>
+        </div>
+      ),
+      variant: isCorrect ? "default" : "destructive",
+      duration: 5000, // Give users more time to read the explanation
+    });
     
-    if (selectedAnswerObj?.isCorrect) {
+    if (isCorrect) {
       setScore(prev => prev + 1);
     }
 
