@@ -31,7 +31,8 @@ const Quiz = () => {
     console.log("Quiz state theme:", quizState.theme);
     let filteredQuestions: Question[];
 
-    if (quizState.theme === "general") {
+    // Correction ici pour gérer "general culture" correctement
+    if (quizState.theme === "general culture") {
       filteredQuestions = predefinedQuestions.filter(q => q.theme === "general");
     } else {
       filteredQuestions = predefinedQuestions.filter(q => q.theme === quizState.theme);
