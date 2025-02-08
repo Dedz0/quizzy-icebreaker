@@ -21,7 +21,7 @@ interface Question {
   question: string;
   theme: string;
   answers: Answer[];
-  explanation: string; // Added explanation field
+  explanation: string;
 }
 
 const predefinedQuestions: Question[] = [
@@ -361,10 +361,10 @@ const predefinedQuestions: Question[] = [
     explanation: "Follow-up in customer service is important to ensure customer satisfaction, confirm that the issue has been fully resolved, and build lasting relationships.",
   },
 
-  // General Culture Questions (20 new questions)
+  // General Culture Questions (20)
   {
     question: "Quelle est la capitale de l'Australie?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Sydney", isCorrect: false },
       { text: "Melbourne", isCorrect: false },
@@ -375,7 +375,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Qui a peint 'La Nuit étoilée'?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Pablo Picasso", isCorrect: false },
       { text: "Vincent van Gogh", isCorrect: true },
@@ -386,7 +386,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Quel est l'élément chimique le plus abondant dans l'univers?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Oxygène", isCorrect: false },
       { text: "Carbone", isCorrect: false },
@@ -397,7 +397,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "En quelle année a eu lieu la Révolution française?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "1789", isCorrect: true },
       { text: "1776", isCorrect: false },
@@ -408,7 +408,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Qui a écrit 'Les Misérables'?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Émile Zola", isCorrect: false },
       { text: "Victor Hugo", isCorrect: true },
@@ -419,7 +419,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Quel est le plus grand désert du monde?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Le Sahara", isCorrect: false },
       { text: "L'Antarctique", isCorrect: true },
@@ -430,7 +430,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Quelle est la plus haute montagne du monde?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Le K2", isCorrect: false },
       { text: "Le Mont Blanc", isCorrect: false },
@@ -441,7 +441,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Qui était le premier homme à marcher sur la Lune?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Buzz Aldrin", isCorrect: false },
       { text: "Neil Armstrong", isCorrect: true },
@@ -452,7 +452,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Quel est l'organe le plus grand du corps humain?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Le foie", isCorrect: false },
       { text: "Les poumons", isCorrect: false },
@@ -463,7 +463,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Qui a inventé le téléphone?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Thomas Edison", isCorrect: false },
       { text: "Alexander Graham Bell", isCorrect: true },
@@ -474,7 +474,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Quelle est la plus grande planète du système solaire?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Saturne", isCorrect: false },
       { text: "Jupiter", isCorrect: true },
@@ -485,7 +485,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Qui a écrit 'Don Quichotte'?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Miguel de Cervantes", isCorrect: true },
       { text: "Federico García Lorca", isCorrect: false },
@@ -496,7 +496,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Quel est le plus long fleuve du monde?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Le Nil", isCorrect: true },
       { text: "L'Amazone", isCorrect: false },
@@ -507,7 +507,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Qui a peint le plafond de la Chapelle Sixtine?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Léonard de Vinci", isCorrect: false },
       { text: "Michel-Ange", isCorrect: true },
@@ -518,7 +518,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Quel est le symbole chimique de l'argent?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Au", isCorrect: false },
       { text: "Ag", isCorrect: true },
@@ -529,7 +529,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Dans quelle ville se trouve la Tour Eiffel?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Lyon", isCorrect: false },
       { text: "Marseille", isCorrect: false },
@@ -540,7 +540,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Qui a découvert la pénicilline?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Louis Pasteur", isCorrect: false },
       { text: "Alexander Fleming", isCorrect: true },
@@ -551,7 +551,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Quel est le plus petit pays du monde?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Monaco", isCorrect: false },
       { text: "Le Vatican", isCorrect: true },
@@ -562,7 +562,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Qui était le dieu grec de la mer?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Zeus", isCorrect: false },
       { text: "Hadès", isCorrect: false },
@@ -573,7 +573,7 @@ const predefinedQuestions: Question[] = [
   },
   {
     question: "Quelle est la capitale du Japon?",
-    theme: "generalCulture",
+    theme: "general",
     answers: [
       { text: "Osaka", isCorrect: false },
       { text: "Kyoto", isCorrect: false },
@@ -606,7 +606,7 @@ const Quiz = () => {
     let filteredQuestions: Question[];
 
     if (quizState.theme === "general") {
-      filteredQuestions = predefinedQuestions.filter(q => q.theme === "generalCulture");
+      filteredQuestions = predefinedQuestions.filter(q => q.theme === "general");
     } else {
       filteredQuestions = predefinedQuestions.filter(q => q.theme === quizState.theme);
     }
