@@ -29,16 +29,20 @@ const Quiz = () => {
     }
 
     console.log("Quiz state theme:", quizState.theme);
+    console.log("All questions:", predefinedQuestions);
     let filteredQuestions: Question[];
 
-    // Correction ici pour gérer "general culture" correctement
     if (quizState.theme === "general culture") {
-      filteredQuestions = predefinedQuestions.filter(q => q.theme === "general");
+      console.log("Filtering for general culture questions");
+      filteredQuestions = predefinedQuestions.filter(q => {
+        console.log("Question theme:", q.theme);
+        return q.theme === "general";
+      });
     } else {
       filteredQuestions = predefinedQuestions.filter(q => q.theme === quizState.theme);
     }
 
-    console.log("Filtered questions count:", filteredQuestions.length);
+    console.log("Filtered questions:", filteredQuestions);
     
     if (filteredQuestions.length === 0) {
       toast({
