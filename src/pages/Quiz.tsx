@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -31,12 +32,16 @@ const Quiz = () => {
     console.log("All questions:", predefinedQuestions);
     let filteredQuestions: Question[];
 
-    filteredQuestions = predefinedQuestions.filter(q => {
-      if (quizState.theme === "general culture") {
-        return q.theme.toLowerCase() === "general";
-      }
-      return q.theme.toLowerCase() === quizState.theme.toLowerCase();
-    });
+    // Nouvelle approche pour le filtrage
+    if (quizState.theme.toLowerCase() === "general culture") {
+      filteredQuestions = predefinedQuestions.filter(q => 
+        q.theme.toLowerCase() === "general" || q.theme.toLowerCase() === "general culture"
+      );
+    } else {
+      filteredQuestions = predefinedQuestions.filter(q => 
+        q.theme.toLowerCase() === quizState.theme.toLowerCase()
+      );
+    }
 
     console.log("Filtered questions:", filteredQuestions);
     
