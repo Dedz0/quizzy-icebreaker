@@ -15,12 +15,22 @@ const Quiz = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { toast } = useToast();
-  const [timeRemaining, setTimeRemaining] = useState(540); // 9 minutes in seconds
+  const [timeRemaining, setTimeRemaining] = useState(540);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string>("");
   const [score, setScore] = useState(0);
   const quizState = location.state as QuizState;
+
+  // Fonction pour mélanger un tableau
+  const shuffleArray = <T,>(array: T[]): T[] => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
 
   useEffect(() => {
     if (!quizState?.theme) {
@@ -32,7 +42,6 @@ const Quiz = () => {
     console.log("All questions:", predefinedQuestions);
     let filteredQuestions: Question[];
 
-    // Nouvelle approche pour le filtrage
     if (quizState.theme.toLowerCase() === "general culture") {
       filteredQuestions = predefinedQuestions.filter(q => 
         q.theme.toLowerCase() === "general" || q.theme.toLowerCase() === "general culture"
@@ -43,9 +52,18 @@ const Quiz = () => {
       );
     }
 
-    console.log("Filtered questions:", filteredQuestions);
+    // Mélanger les questions et leurs réponses
+    const shuffledQuestions = filteredQuestions.map(q => ({
+      ...q,
+      answers: shuffleArray(q.answers)
+    }));
     
-    if (filteredQuestions.length === 0) {
+    // Mélanger l'ordre des questions
+    const finalQuestions = shuffleArray(shuffledQuestions);
+
+    console.log("Filtered and shuffled questions:", finalQuestions);
+    
+    if (finalQuestions.length === 0) {
       toast({
         title: "Erreur",
         description: "Aucune question disponible pour ce thème",
@@ -55,7 +73,7 @@ const Quiz = () => {
       return;
     }
 
-    setQuestions(filteredQuestions);
+    setQuestions(finalQuestions);
   }, [quizState?.theme, navigate, toast]);
 
   useEffect(() => {
