@@ -20,25 +20,32 @@ const Rankings = () => {
   const location = useLocation();
   const currentScore = location.state as RankingEntry;
 
-  // For now, we'll use local storage to persist rankings
-  const getRankings = (): RankingEntry[] => {
+  // Pour obtenir tous les scores de tous les utilisateurs
+  const getAllScores = (): RankingEntry[] => {
     const rankings = localStorage.getItem("quizRankings");
-    return rankings ? JSON.parse(rankings) : [];
+    const allScores = rankings ? JSON.parse(rankings) : [];
+    
+    // Regrouper les scores par utilisateur et prendre le meilleur score
+    const userBestScores = allScores.reduce((acc: { [key: string]: RankingEntry }, curr: RankingEntry) => {
+      if (!acc[curr.username] || acc[curr.username].score < curr.score) {
+        acc[curr.username] = curr;
+      }
+      return acc;
+    }, {});
+
+    // Convertir en tableau et trier par score
+    return Object.values(userBestScores).sort((a, b) => b.score - a.score);
   };
 
-  const saveRanking = (entry: RankingEntry) => {
-    const rankings = getRankings();
-    rankings.push(entry);
-    rankings.sort((a, b) => b.score - a.score);
-    localStorage.setItem("quizRankings", JSON.stringify(rankings));
-  };
-
-  // Save current score if it exists
+  // Sauvegarder le score actuel si nécessaire
   if (currentScore?.username && currentScore?.score !== undefined) {
-    saveRanking(currentScore);
+    const rankings = getAllScores();
+    const existingScores = JSON.parse(localStorage.getItem("quizRankings") || "[]");
+    existingScores.push(currentScore);
+    localStorage.setItem("quizRankings", JSON.stringify(existingScores));
   }
 
-  const rankings = getRankings();
+  const rankings = getAllScores();
 
   const getMedalIcon = (position: number) => {
     switch (position) {
@@ -53,7 +60,7 @@ const Rankings = () => {
     }
   };
 
-  const getScoreChange = (score: number, index: number) => {
+  const getScoreChange = (score: number) => {
     const averageScore = rankings.reduce((acc, curr) => acc + curr.score, 0) / rankings.length;
     if (score > averageScore) {
       return <ArrowBigUp className="w-4 h-4 text-green-500" />;
@@ -66,18 +73,18 @@ const Rankings = () => {
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-8 flex items-center gap-2">
           <Trophy className="w-8 h-8 text-yellow-500" />
-          Quiz Rankings
+          Classement Général
         </h1>
 
         <div className="bg-white rounded-lg shadow-lg p-6">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-16">Rank</TableHead>
-                <TableHead>Player</TableHead>
-                <TableHead>Theme</TableHead>
+                <TableHead className="w-16">Rang</TableHead>
+                <TableHead>Joueur</TableHead>
+                <TableHead>Thème</TableHead>
                 <TableHead className="text-right">Score</TableHead>
-                <TableHead className="w-16 text-right">Trend</TableHead>
+                <TableHead className="w-16 text-right">Tendance</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -87,7 +94,7 @@ const Rankings = () => {
                   <TableCell>{entry.username}</TableCell>
                   <TableCell>{entry.theme}</TableCell>
                   <TableCell className="text-right">{entry.score}/10</TableCell>
-                  <TableCell className="text-right">{getScoreChange(entry.score, index)}</TableCell>
+                  <TableCell className="text-right">{getScoreChange(entry.score)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
