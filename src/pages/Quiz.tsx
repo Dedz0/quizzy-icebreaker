@@ -19,6 +19,8 @@ const Quiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string>("");
   const [score, setScore] = useState(0);
+  const [isAnswered, setIsAnswered] = useState(false);
+  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const quizState = location.state as QuizState;
 
   const shuffleArray = <T,>(array: T[]): T[] => {
@@ -109,33 +111,40 @@ const Quiz = () => {
 
     const currentQuestion = questions[currentQuestionIndex];
     const selectedAnswerObj = currentQuestion.answers.find(a => a.text === selectedAnswer);
-    const isCorrect = selectedAnswerObj?.isCorrect || false;
-
-    toast({
-      title: isCorrect ? "Correct! 🎉" : "Incorrect",
-      description: (
-        <div className="mt-2">
-          <p className="font-semibold mb-1">
-            {isCorrect ? "Well done!" : "The correct answer was: " + 
-              currentQuestion.answers.find(a => a.isCorrect)?.text}
-          </p>
-          <p className="text-sm text-gray-600">{currentQuestion.explanation}</p>
-        </div>
-      ),
-      variant: isCorrect ? "default" : "destructive",
-      duration: 5000,
-    });
+    const correct = selectedAnswerObj?.isCorrect || false;
     
-    if (isCorrect) {
-      setScore(prev => prev + 1);
-    }
+    setIsCorrect(correct);
+    setIsAnswered(true);
 
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(prev => prev + 1);
-      setSelectedAnswer("");
-    } else {
-      handleQuizComplete();
-    }
+    setTimeout(() => {
+      if (correct) {
+        setScore(prev => prev + 1);
+      }
+
+      toast({
+        title: correct ? "Correct! 🎉" : "Incorrect",
+        description: (
+          <div className="mt-2">
+            <p className="font-semibold mb-1">
+              {correct ? "Well done!" : "The correct answer was: " + 
+                currentQuestion.answers.find(a => a.isCorrect)?.text}
+            </p>
+            <p className="text-sm text-gray-600">{currentQuestion.explanation}</p>
+          </div>
+        ),
+        variant: correct ? "default" : "destructive",
+        duration: 5000,
+      });
+
+      if (currentQuestionIndex < questions.length - 1) {
+        setCurrentQuestionIndex(prev => prev + 1);
+        setSelectedAnswer("");
+        setIsAnswered(false);
+        setIsCorrect(null);
+      } else {
+        handleQuizComplete();
+      }
+    }, 2500);
   };
 
   const minutes = Math.floor(timeRemaining / 60);
@@ -164,12 +173,15 @@ const Quiz = () => {
             question={currentQuestion}
             selectedAnswer={selectedAnswer}
             onAnswerSelect={setSelectedAnswer}
+            isAnswered={isAnswered}
+            isCorrect={isCorrect}
           />
 
           <Button
             onClick={handleNextQuestion}
             className="mt-8 w-full"
             size="lg"
+            disabled={isAnswered}
           >
             {currentQuestionIndex < questions.length - 1 ? (
               <>

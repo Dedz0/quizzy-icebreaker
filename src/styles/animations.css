@@ -1,0 +1,58 @@
+
+@keyframes run {
+  from {
+    left: 4%;
+  }
+  to {
+    left: 85%;
+  }
+}
+
+@keyframes win {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes legs {
+  0% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+
+.animate-run {
+  animation: run 2s linear;
+}
+
+.animate-win {
+  animation: win 0.5s ease-out;
+}
+
+.animate-fall {
+  animation: fall 0.5s ease-in forwards;
+}
+
+.animate-legs {
+  animation: legs 0.3s infinite;
+}
