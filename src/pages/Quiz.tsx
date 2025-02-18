@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -22,7 +21,6 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const quizState = location.state as QuizState;
 
-  // Fonction pour mélanger un tableau
   const shuffleArray = <T,>(array: T[]): T[] => {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -39,26 +37,15 @@ const Quiz = () => {
     }
 
     console.log("Quiz state theme:", quizState.theme);
-    console.log("All questions:", predefinedQuestions);
-    let filteredQuestions: Question[];
+    let filteredQuestions = predefinedQuestions.filter(q => 
+      q.theme.toLowerCase() === quizState.theme.toLowerCase()
+    );
 
-    if (quizState.theme.toLowerCase() === "general culture") {
-      filteredQuestions = predefinedQuestions.filter(q => 
-        q.theme.toLowerCase() === "general" || q.theme.toLowerCase() === "general culture"
-      );
-    } else {
-      filteredQuestions = predefinedQuestions.filter(q => 
-        q.theme.toLowerCase() === quizState.theme.toLowerCase()
-      );
-    }
-
-    // Mélanger les questions et leurs réponses
     const shuffledQuestions = filteredQuestions.map(q => ({
       ...q,
       answers: shuffleArray(q.answers)
     }));
     
-    // Mélanger l'ordre des questions
     const finalQuestions = shuffleArray(shuffledQuestions);
 
     console.log("Filtered and shuffled questions:", finalQuestions);
