@@ -1,6 +1,6 @@
 
-import { useLocation } from "react-router-dom";
-import { Trophy, ArrowBigDown, ArrowBigUp, Medal } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Trophy, ArrowBigDown, ArrowBigUp, Medal, Home } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
 
 interface RankingEntry {
   username: string;
@@ -18,6 +19,7 @@ interface RankingEntry {
 
 const Rankings = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const currentScore = location.state as RankingEntry;
 
   // Pour obtenir tous les scores de tous les utilisateurs
@@ -71,10 +73,20 @@ const Rankings = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8 flex items-center gap-2">
-          <Trophy className="w-8 h-8 text-yellow-500" />
-          Classement Général
-        </h1>
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold flex items-center gap-2">
+            <Trophy className="w-8 h-8 text-yellow-500" />
+            Classement Général
+          </h1>
+          <Button 
+            onClick={() => navigate('/')}
+            variant="outline"
+            className="flex items-center gap-2"
+          >
+            <Home className="w-4 h-4" />
+            Retour à l'accueil
+          </Button>
+        </div>
 
         <div className="bg-white rounded-lg shadow-lg p-6">
           <Table>
