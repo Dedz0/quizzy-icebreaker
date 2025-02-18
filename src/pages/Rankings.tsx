@@ -23,10 +23,11 @@ const Rankings = () => {
   // Pour obtenir tous les scores de tous les utilisateurs
   const getAllScores = (): RankingEntry[] => {
     const rankings = localStorage.getItem("quizRankings");
-    const allScores = rankings ? JSON.parse(rankings) : [];
+    // Typer explicitement le résultat de JSON.parse
+    const allScores: RankingEntry[] = rankings ? JSON.parse(rankings) : [];
     
     // Regrouper les scores par utilisateur et prendre le meilleur score
-    const userBestScores = allScores.reduce((acc: { [key: string]: RankingEntry }, curr: RankingEntry) => {
+    const userBestScores = allScores.reduce<{ [key: string]: RankingEntry }>((acc, curr) => {
       if (!acc[curr.username] || acc[curr.username].score < curr.score) {
         acc[curr.username] = curr;
       }
@@ -39,8 +40,7 @@ const Rankings = () => {
 
   // Sauvegarder le score actuel si nécessaire
   if (currentScore?.username && currentScore?.score !== undefined) {
-    const rankings = getAllScores();
-    const existingScores = JSON.parse(localStorage.getItem("quizRankings") || "[]");
+    const existingScores: RankingEntry[] = JSON.parse(localStorage.getItem("quizRankings") || "[]");
     existingScores.push(currentScore);
     localStorage.setItem("quizRankings", JSON.stringify(existingScores));
   }
