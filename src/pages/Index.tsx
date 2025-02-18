@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -5,7 +6,7 @@ import LanguageSelector from "@/components/LanguageSelector";
 import ThemeCard from "@/components/ThemeCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Brain, Trophy, Globe2, HeartHandshake } from "lucide-react";
+import { Brain, Trophy, HeartHandshake } from "lucide-react";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -16,7 +17,6 @@ const Index = () => {
   const themes = [
     { id: "agility", color: "bg-agility", icon: <Brain className="w-8 h-8" /> },
     { id: "sports", color: "bg-sports", icon: <Trophy className="w-8 h-8" /> },
-    { id: "culture", color: "bg-culture", icon: <Globe2 className="w-8 h-8" /> },
     { id: "customer", color: "bg-customer", icon: <HeartHandshake className="w-8 h-8" /> },
   ];
 
